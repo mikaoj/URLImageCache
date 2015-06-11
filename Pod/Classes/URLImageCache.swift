@@ -26,7 +26,7 @@ public class URLImageCache {
     - parameter imageURL: The image URL
     - parameter completion: Block to be called on completion
     */
-    class func imageForURL(imageURL: NSURL, completion: (image: UIImage?) -> ()) {
+    public class func imageForURL(imageURL: NSURL, completion: (image: UIImage?) -> ()) {
         if let image = ImageCache.imageForURL(imageURL) {
             // Image is in cache, return it!
             completion(image: image)

@@ -7,22 +7,34 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install` from the Example directory first.<br />
+Fetch an image:
+```swift
+URLImageCache.imageForURL(imageURL, completion: { (image) -> () in
+  // Do something with image?
+})
+```
+
+Using the UIImageView extension
+```swift
+import URLImageCache
+// Set image with an URL
+largeImageView?.bs_setImageWithURL(imageURL)
+
+// Use an optional placeholder while fetching
+imageView.bs_setImageWithURL(imageURL, placeholder: UIImage(named: "troll"))
+```
+
 
 ## Requirements
 
 ## Installation
 
-URLImageCache is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "URLImageCache"
-```
+Using cocoapods...if I push the podspec to trunk.
 
 ## Author
 
-Joakim Gyllstrom, joakim@backslashed.se
+Joakim Gyllström, joakim@backslashed.se
 
 ## License
 
