@@ -20,16 +20,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import UIKit
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+public class URLImageCache {
+    /**
+    Fetches an image for an URL (from the cache or web)
+    - parameter imageURL: The image URL
+    - parameter completion: Block to be called on completion
+    */
+    class func imageForURL(imageURL: NSURL, completion: (image: UIImage?) -> ()) {
+        if let image = ImageCache.imageForURL(imageURL) {
+            // Image is in cache, return it!
+            completion(image: image)
+        } else {
+            // No image in cache, download it
+            ImageDownloader.downloadImage(imageURL, completion: completion)
+        }
     }
 }
-

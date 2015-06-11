@@ -1,0 +1,6 @@
+framework module URLImageCache {
+  umbrella header "Pods-URLImageCache_Tests-URLImageCache-umbrella.h"
+
+  export *
+  module * { export * }
+}

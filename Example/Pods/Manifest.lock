@@ -1,0 +1,14 @@
+PODS:
+  - URLImageCache (0.1.0)
+
+DEPENDENCIES:
+  - URLImageCache (from `../`)
+
+EXTERNAL SOURCES:
+  URLImageCache:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  URLImageCache: a583fe87e90344a187fc207602aebb2547a1c476
+
+COCOAPODS: 0.37.2

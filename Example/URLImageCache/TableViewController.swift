@@ -21,15 +21,24 @@
 // SOFTWARE.
 
 import UIKit
+import URLImageCache
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+class TableViewController: UITableViewController {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("randomCell", forIndexPath: indexPath) as! ImageTableViewCell
+        
+        let imageSize = cell.largeImageView.bounds
+        cell.largeImageView.image = nil
+        
+        if let imageURL = NSURL(string: "http://placehold.it/\(Int(imageSize.width*4)+indexPath.row)x\(Int(imageSize.height*4)+indexPath.row)") {
+            cell.largeImageView?.bs_setImageWithURL(imageURL, placeholder: UIImage(named: "troll"))
+        }
+        
+        return cell
     }
 }
 

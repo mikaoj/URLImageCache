@@ -20,16 +20,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import UIKit
+import Foundation
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+internal class ImageCache {
+    private static let sharedCache = ImageCache()
+    private let imageCache = NSCache()
+    
+    /**
+    Fetches images for a given URL from the cache
+    - parameter url: URL for the image
+    */
+    class func imageForURL(url: NSURL) -> UIImage? {
+        return sharedCache.imageCache.objectForKey(url) as? UIImage
+    }
+    
+    /**
+    Caches an image for a given URL.
+    - parameter image: The image to cache
+    - parameter imageURL: URL for the image
+    */
+    class func cacheImage(image: UIImage, forURL imageURL: NSURL) {
+        sharedCache.imageCache.setObject(image, forKey: imageURL)
     }
 }
-
