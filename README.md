@@ -19,7 +19,7 @@ Using the UIImageView extension
 ```swift
 import URLImageCache
 // Set image with an URL
-largeImageView?.bs_setImageWithURL(imageURL)
+imageView.bs_setImageWithURL(imageURL)
 
 // Use an optional placeholder while fetching
 imageView.bs_setImageWithURL(imageURL, placeholder: UIImage(named: "troll"))
