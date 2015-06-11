@@ -8,6 +8,10 @@
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.<br />
+```swift
+import URLImageCache
+```
+
 Fetch an image:
 ```swift
 URLImageCache.imageForURL(imageURL, completion: { (image) -> () in
@@ -17,7 +21,6 @@ URLImageCache.imageForURL(imageURL, completion: { (image) -> () in
 
 Using the UIImageView extension
 ```swift
-import URLImageCache
 // Set image with an URL
 imageView.bs_setImageWithURL(imageURL)
 
